@@ -49,9 +49,9 @@ public class ManageAccount {
 
 
 
-
     }
 
+    /* allows the user to select a stock they want to sell */
     public static void sellShares(ArrayList<Stock> myAccount){
         System.out.println("Which stock would you like to SELL? Enter ticker symbol (e.g. AAPL, TSLA)");
 
