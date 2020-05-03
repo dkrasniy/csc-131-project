@@ -4,14 +4,14 @@ import java.util.function.DoubleBinaryOperator;
 public class Stock
 {
     String ticker;
-    double price;
+    double purchaseprice;
     int shares;
     Date date;
 
-    public Stock(String ticker, double price)
+    public Stock(String ticker, double purchaseprice, int shares, Date date)
     {
         this.ticker = ticker;
-        this.price = price;
+        this.purchaseprice = purchaseprice;
         this.shares = shares;
         this.date = date;
     }
@@ -21,9 +21,9 @@ public class Stock
         return ticker;
     }
 
-    public Double getPrice()
+    public Double getPurchasePrice()
     {
-        return price;
+        return purchaseprice;
     }
     public int getShares()
     {

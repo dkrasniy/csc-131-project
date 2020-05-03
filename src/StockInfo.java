@@ -2,6 +2,7 @@
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class StockInfo {
@@ -25,5 +26,18 @@ public class StockInfo {
 
         return Double.parseDouble(price);
     }
+
+    public static Double ReturnProfitPerShare(String ticker, double purchasePrice) throws IOException  {
+        return ReturnStockPrice(ticker) - purchasePrice;
+    }
+
+    public static Double ReturnTotalAccountValue(ArrayList<Stock> myAccount) throws IOException  {
+        double totalAccountValue = 0;
+        for (int counter = 0; counter < myAccount.size(); counter++) {
+            totalAccountValue +=  (ReturnStockPrice(myAccount.get(counter).ticker) * myAccount.get(counter).shares);
+        }
+        return totalAccountValue;
+    }
+
 
 }
