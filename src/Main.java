@@ -1,30 +1,23 @@
 import java.io.IOException;
-import java.net.URL;
-import java.util.Scanner;
+import java.util.ArrayList;
 
 
 public class Main {
     public static void main(String args[]) throws IOException {
-        System.out.print(ReturnStockPrice("AAPL"));
-    }
 
-    public static Double ReturnStockPrice(String symbol) throws IOException {
-        URL url = new URL("https://query1.finance.yahoo.com/v7/finance/spark?symbols=" + symbol);
+        int STARTING_BALANCE = 50000;
 
-        Scanner sc = new Scanner(url.openStream());
+        Stock aapl = new Stock("AAPL",294.23);
 
-        StringBuffer sb = new StringBuffer();
-        while (sc.hasNext()) {
-            sb.append(sc.next());
-        }
-        String result = sb.toString();
+        ArrayList<Stock> myAccount = new ArrayList<Stock>();
 
-        //search the returned json for the regularMarketPrice and get the price follwing :
-        int p = result.indexOf("regularMarketPrice", 0);
-        int from = result.indexOf(":", p);
-        int to = result.indexOf(",", from);
-        String price = result.substring(from + 1, to);
+        System.out.println("Hello, your starting balance is $" + STARTING_BALANCE);
+        System.out.println("What would you like to do today?");
+        System.out.println("Type b to buy");
+        System.out.println("Type s to sell");
+        System.out.println("Type a to view account details");
 
-        return Double.parseDouble(price);
+        ManageAccount.add(4,7);
+        System.out.print(StockInfo.ReturnStockPrice("AAPL"));
     }
 }
