@@ -10,6 +10,8 @@ public class Main {
 
         ArrayList<Stock> myAccount = new ArrayList<Stock>();
 
+        ManageAccount.buyShares(myAccount);
+
         Date date = new Date();
 
         myAccount.add(new Stock ("AAPL",294.23,500, date));
