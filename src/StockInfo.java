@@ -27,10 +27,12 @@ public class StockInfo {
         return Double.parseDouble(price);
     }
 
+    // returns profit from stock
     public static Double ReturnProfitPerShare(String ticker, double purchasePrice) throws IOException  {
         return ReturnStockPrice(ticker) - purchasePrice;
     }
 
+    
     public static Double ReturnTotalAccountValue(ArrayList<Stock> myAccount) throws IOException  {
         double totalAccountValue = 0;
         for (int counter = 0; counter < myAccount.size(); counter++) {
