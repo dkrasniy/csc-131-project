@@ -17,6 +17,7 @@ public class Main {
         myAccount.add(new Stock ("AAPL",294.23,500, date));
         myAccount.add(new Stock ("TSLA",650.00,20, date));
 
+        // prints the users account info
         ManageAccount.printAccountOverview(myAccount, user);
 
 //        System.out.println("Hello, your starting balance is $" + STARTING_BALANCE);
