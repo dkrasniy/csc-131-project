@@ -25,6 +25,8 @@ public class Stock
     {
         return purchaseprice;
     }
+    
+    // gets the amount of shares to purchase
     public int getShares()
     {
         return shares;
