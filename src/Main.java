@@ -1,31 +1,44 @@
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.Date;
-
 
 public class Main {
     public static void main(String args[]) throws IOException {
-        String user = "DAVID KRASNIY";
-        int STARTING_BALANCE = 50000;
-
-        ArrayList<Stock> myAccount = new ArrayList<Stock>();
-
-        ManageAccount.buyShares(myAccount);
-
+        String user = "DAVID";
         Date date = new Date();
 
-        myAccount.add(new Stock ("AAPL",294.23,500, date));
+        ArrayList<Stock> myAccount = new ArrayList<Stock>();
         myAccount.add(new Stock ("TSLA",650.00,20, date));
+        runChoicesScript(myAccount, user);
+    }
 
-        // prints the users account info
-        ManageAccount.printAccountOverview(myAccount, user);
+    public static void runChoicesScript(ArrayList<Stock> myAccount, String user) throws IOException  {
+        System.out.println("---------------------------------");
+        System.out.println("Type b to buy");
+        System.out.println("Type s to sell");
+        System.out.println("Type a to view account details");
+        System.out.println();
 
-//        System.out.println("Hello, your starting balance is $" + STARTING_BALANCE);
-//        System.out.println("What would you like to do today?");
-//        System.out.println("Type b to buy");
-//        System.out.println("Type s to sell");
-//        System.out.println("Type a to view account details");
+        Scanner reader = new Scanner(System.in);
+        String action = reader.next();
 
-    // System.out.print(StockInfo.ReturnStockPrice("AAPL"));
+
+        switch (action) {
+            case "a":
+                ManageAccount.printAccountOverview(myAccount, user);
+                runChoicesScript(myAccount, user);
+                break;
+            case "b":
+                ManageAccount.buyShares(myAccount);
+                runChoicesScript(myAccount, user);
+                break;
+            case "s":
+                ManageAccount.sellShares(myAccount);
+                runChoicesScript(myAccount, user);
+                break;
+            default:
+                runChoicesScript(myAccount, user);
+        }
     }
 }

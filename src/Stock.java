@@ -25,10 +25,18 @@ public class Stock
     {
         return purchaseprice;
     }
-    
-    // gets the amount of shares to purchase
+    public Double setPurchasePrice(Double purchasePrice)
+    {
+        this.purchaseprice = purchasePrice;
+        return purchaseprice;
+    }
     public int getShares()
     {
+        return shares;
+    }
+    public int setShares(int shares)
+    {
+        this.shares = shares;
         return shares;
     }
 
