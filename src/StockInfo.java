@@ -32,7 +32,7 @@ public class StockInfo {
         return ReturnStockPrice(ticker) - purchasePrice;
     }
 
-    
+    //added method to return account value
     public static Double ReturnTotalAccountValue(ArrayList<Stock> myAccount) throws IOException  {
         double totalAccountValue = 0;
         for (int counter = 0; counter < myAccount.size(); counter++) {
