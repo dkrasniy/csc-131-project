@@ -25,11 +25,13 @@ public class Stock
     {
         return purchaseprice;
     }
+    //Accepts new purchase price and sets to default 
     public Double setPurchasePrice(Double purchasePrice)
     {
         this.purchaseprice = purchasePrice;
         return purchaseprice;
     }
+    //return shares values
     public int getShares()
     {
         return shares;
