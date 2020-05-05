@@ -7,7 +7,7 @@ import java.util.Scanner;
 import java.text.DecimalFormat;
 
 public class ManageAccount {
-
+    //fixed errors in some print statements and format
     public static void printAccountOverview(ArrayList<Stock> myAccount, String user) throws IOException  {
         DecimalFormat df = new DecimalFormat("#,###.00");
 
