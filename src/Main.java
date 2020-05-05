@@ -9,12 +9,12 @@ public class Main {
         Date date = new Date();
 
         ArrayList<Stock> myAccount = new ArrayList<Stock>();
-        myAccount.add(new Stock ("TSLA",650.00,20, date));
+        myAccount.add(new Stock ("TSLA",950.00,200, date));
         runChoicesScript(myAccount, user);
     }
 
     public static void runChoicesScript(ArrayList<Stock> myAccount, String user) throws IOException  {
-        System.out.println("---------------------------------");
+        System.out.println("--------------------------------------------------------------------------------");
         System.out.println("Type b to buy");
         System.out.println("Type s to sell");
         System.out.println("Type a to view account details");

@@ -4,24 +4,28 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
+import java.text.DecimalFormat;
 
 public class ManageAccount {
-    public static void add(int a, int b) {
-        int c = a + b;
-        System.out.println(c);
 
-    }
     public static void printAccountOverview(ArrayList<Stock> myAccount, String user) throws IOException  {
+        DecimalFormat df = new DecimalFormat("#,###.00");
+
         System.out.println("ACCOUNT OVERVIEW: " + user);
-        System.out.println("ACCOUNT VALUE: " + StockInfo.ReturnTotalAccountValue(myAccount));
+        System.out.println("ACCOUNT VALUE: " + df.format(StockInfo.ReturnTotalAccountValue(myAccount)));
         System.out.println("");
-        System.out.println(String.format("%5s %5s %5s %5s %10s %5s %5s", "Ticker", "|", "Shares", "|", "Purchase Price", "|", "Gain/Loss"));
-        System.out.println(String.format("%s", "--------------------------------------------------------"));
+        System.out.println(String.format("%5s %5s %5s %5s %5s %5s %5s %5s %5s", "Ticker", "|", "Shares", "|", "Purc Price", "|", "Total Value", "|", "Gain/Loss"));
+        System.out.println(String.format("%s", "--------------------------------------------------------------------------------"));
+
+
+
+        System.out.println();
 
         for (int counter = 0; counter < myAccount.size(); counter++) {
             double profitPerShare = StockInfo.ReturnProfitPerShare(myAccount.get(counter).ticker, myAccount.get(counter).purchaseprice);
             double profitPerAllShares = profitPerShare * myAccount.get(counter).shares;
-            System.out.println(String.format("%6s %5s %6d %5s %10.2f %5s %10.2f", myAccount.get(counter).ticker, "|", myAccount.get(counter).shares, "|", myAccount.get(counter).purchaseprice, "|", profitPerAllShares));
+            double totalValueOfAllShares= myAccount.get(counter).shares * StockInfo.ReturnStockPrice(myAccount.get(counter).ticker);
+            System.out.println(String.format("%6s %5s %6d %5s %10s %5s %10s %5s %10s", myAccount.get(counter).ticker, "|", myAccount.get(counter).shares, "|", "$" + df.format(myAccount.get(counter).purchaseprice), "|", "$" + df.format(totalValueOfAllShares),"|", "$" +df.format(profitPerAllShares)));
         }
 
     }
