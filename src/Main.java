@@ -24,7 +24,7 @@ public class Main {
         Scanner reader = new Scanner(System.in);
         String action = reader.next();
 
-
+        //updated cases and added function 
         switch (action) {
             case "a":
                 ManageAccount.printAccountOverview(myAccount, user);
