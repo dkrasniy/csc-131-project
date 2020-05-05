@@ -14,6 +14,7 @@ public class Main {
     }
 
     public static void runChoicesScript(ArrayList<Stock> myAccount, String user) throws IOException  {
+        System.out.println();
         System.out.println("--------------------------------------------------------------------------------");
         System.out.println("Type b to buy");
         System.out.println("Type s to sell");

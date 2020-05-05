@@ -87,10 +87,36 @@ public class ManageAccount {
     /* allows the user to select a stock they want to sell */
     public static void sellShares(ArrayList<Stock> myAccount){
         System.out.println("Which stock would you like to SELL? Enter ticker symbol (e.g. AAPL, TSLA)");
-        Scanner buyInputScanner = new Scanner(System.in);
-        String ticker = buyInputScanner.nextLine();
+        Scanner sellInputScanner = new Scanner(System.in);
+        String ticker = sellInputScanner.nextLine();
 
-        System.out.print("How many shares of " + ticker + " would you like to SELL? You have.... shares" );
+        boolean alreadyOwnsTicker = myAccount.stream().anyMatch(o -> o.getTicker().equals(ticker));
+
+        if(alreadyOwnsTicker) {
+            System.out.print("How many shares of " + ticker + " would you like to SELL? You have " );
+            int existingShares = myAccount.get(ReturnIndexOfItemFromTicker(myAccount, ticker)).getShares();
+            System.out.println(existingShares + ".");
+
+            int sharesSellAmount = sellInputScanner.nextInt();
+
+            if(existingShares - sharesSellAmount < 1) {
+                myAccount.remove(ReturnIndexOfItemFromTicker(myAccount, ticker));
+            } else {
+                myAccount.get(ReturnIndexOfItemFromTicker(myAccount, ticker)).setShares(existingShares - sharesSellAmount);
+            }
+            System.out.println();
+            if(sharesSellAmount > existingShares){
+                System.out.println("SOLD ALL shares! You have no more " + ticker + " stock.");
+            } else {
+                System.out.println("SOLD " + sharesSellAmount + " shares!");
+                System.out.println("You have  " + (existingShares - sharesSellAmount) + " shares remaining.");
+            }
+
+
+        } else {
+            System.out.println("You do not own any shares of " + ticker + ".");
+        }
+
     }
 
 
